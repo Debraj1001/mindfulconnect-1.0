@@ -1,0 +1,43 @@
+/* Water ripple effect styles */
+.water-ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.5);
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.water-ripple.animate {
+  animation: ripple-effect 0.5s ease-out forwards;
+}
+
+@keyframes ripple-effect {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(7);
+    opacity: 0;
+  }
+}
+
+/* Restore default cursor */
+html,
+body {
+  cursor: default;
+}
+
+/* Show default cursor on touch devices */
+@media (hover: none) {
+  html,
+  body {
+    cursor: auto;
+  }
+}
+
